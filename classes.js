@@ -71,3 +71,9 @@ document.write('</div>');
     document.write('<p style="color:' + this.color + '">' + output + '</p>');
   }
 }
+
+class RefillableMarker extends Marker {
+  refill(amount) {
+    this.ink += amount;
+  }
+}
