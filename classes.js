@@ -120,3 +120,9 @@ class Employee {
     this.salary = salary;
   }
 }
+
+const employees = [
+  new Employee("John Doe", "Manager", 3000),
+  new Employee("Jane Smith", "Accountant", 2500),
+  new Employee("Bob Wilson", "Cashier", 2000)
+];
