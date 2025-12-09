@@ -58,4 +58,16 @@ document.write('</div>');
   constructor(color) {
     this.color = color;
   }
+
+   print(text) {
+    let output = "";
+    for (let char of text) {
+      if (this.ink <= 0) break;
+      if (char !== " ") {
+        this.ink -= 0.5;
+      }
+      output += char;
+    }
+    document.write('<p style="color:' + this.color + '">' + output + '</p>');
+  }
 }
