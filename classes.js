@@ -12,23 +12,23 @@
 //     this._radius = radius;
 //   }
 
-//     get radius() {
+//   get radius() {
 //     return this._radius;
 //   }
 
-//     set radius(value) {
+//   set radius(value) {
 //     this._radius = value;
 //   }
 
-//     get diameter() {
+//   get diameter() {
 //     return this._radius * 2;
 //   }
 
-//    getArea() {
+//   getArea() {
 //     return Math.PI * this._radius * this._radius;
 //   }
 
-//     getCircumference() {
+//   getCircumference() {
 //     return 2 * Math.PI * this._radius;
 //   }
 // }
@@ -37,12 +37,17 @@
 // let r = Number(input);
 // let circle = new Circle(r);
 
-// document.write('<div class="result-box">');
-// document.write('<div class="header">Circle with radius ' + circle.radius + '</div>');
-// document.write('<div class="line">Diameter: ' + circle.diameter + '</div>');
-// document.write('<div class="line">Area: ' + circle.getArea().toFixed(2) + '</div>');
-// document.write('<div class="line">Circumference: ' + circle.getCircumference().toFixed(2) + '</div>');
-// document.write('</div>');
+// const box = document.createElement("div");
+// box.className = "result-box";
+
+// box.innerHTML = `
+//   <div class="header">Circle with radius ${circle.radius}</div>
+//   <div class="line">Diameter: ${circle.diameter}</div>
+//   <div class="line">Area: ${circle.getArea().toFixed(2)}</div>
+//   <div class="line">Circumference: ${circle.getCircumference().toFixed(2)}</div>
+// `;
+
+// document.body.appendChild(box);
 
 
 
@@ -54,48 +59,64 @@
 
 // Demonstrate the work of the written methods.
 
-class Marker {
-  constructor(color, ink) {
-    this.color = color;
-    this.ink = ink;
+// class Marker {
+//   constructor(color, ink) {
+//     this.color = color;
+//     this.ink = ink;
+//   }
+
+//   print(text) {
+//     let output = "";
+//     for (let char of text) {
+//       if (this.ink <= 0) break;
+//       if (char !== " ") {
+//         this.ink -= 0.5;
+//       }
+//       output += char;
+//     }
+//     console.log(`%c${output}`, `color:${this.color}`);
+//     console.log("Remaining ink: " + this.ink.toFixed(1) + "%");
+//   }
+// }
+
+// class RefillableMarker extends Marker {
+//   constructor(color, ink) {
+//     super(color, ink);
+//   }
+
+//   refill(amount) {
+//     this.ink += amount;
+//     console.log("Refilled! Ink is now: " + this.ink.toFixed(1) + "%");
+//   }
+// }
+
+// let colorInput = prompt("Enter marker color (e.g. red):");
+// let inkInput = Number(prompt("Enter ink amount (percent):"));
+// let textInput = prompt("Enter text to print:");
+
+// let marker = new RefillableMarker(colorInput, inkInput);
+
+// console.log("Initial ink: " + marker.ink + "%");
+// marker.print(textInput);
+
+// if (marker.ink <= 0) {
+//   console.log("Out of ink! Refilling...");
+//   marker.refill(20);
+//   marker.print(textInput);
+// }
+
+
+
+// 3) Implement the Employee class that describes the employee and create an array of bank employees.
+// Implement the EmpTable class to generate HTML code for a table with a list of bank employees. 
+// The array of employees must be passed through the constructor and get the HTML code using the getHtml () method.
+// Create an object of class EmpTable and display the result of the getHtml () method.
+// Set up sass compilation via webpack.
+
+class Employee {
+  constructor(name, position, salary) {
+    this.name = name;
+    this.position = position;
+    this.salary = salary;
   }
-
-  print(text) {
-    let output = "";
-    for (let char of text) {
-      if (this.ink <= 0) break;
-      if (char !== " ") {
-        this.ink -= 0.5;
-      }
-      output += char;
-    }
-    console.log(`%c${output}`, `color:${this.color}`);
-    console.log("Remaining ink: " + this.ink.toFixed(1) + "%");
-  }
-}
-
-class RefillableMarker extends Marker {
-  constructor(color, ink) {
-    super(color, ink);
-  }
-
-  refill(amount) {
-    this.ink += amount;
-    console.log("Refilled! Ink is now: " + this.ink.toFixed(1) + "%");
-  }
-}
-
-let colorInput = prompt("Enter marker color (e.g. red):");
-let inkInput = Number(prompt("Enter ink amount (percent):"));
-let textInput = prompt("Enter text to print:");
-
-let marker = new RefillableMarker(colorInput, inkInput);
-
-console.log("Initial ink: " + marker.ink + "%");
-marker.print(textInput);
-
-if (marker.ink <= 0) {
-  console.log("Out of ink! Refilling...");
-  marker.refill(20);
-  marker.print(textInput);
 }
