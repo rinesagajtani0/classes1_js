@@ -23,3 +23,17 @@ class Circle {
     return 2 * Math.PI * this._radius;
   }
 }
+
+const c = new Circle(5);
+
+console.log(c.radius);
+console.log(c.diameter);
+console.log(c.getArea());
+console.log(c.getCircumference());
+
+c.radius = 10;
+
+console.log(c.radius);
+console.log(c.diameter);
+console.log(c.getArea());
+console.log(c.getCircumference());
