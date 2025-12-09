@@ -149,3 +149,9 @@ class EmpTable {
     return table;
   }
 }
+
+
+const empTable = new EmpTable(employees);
+const container = document.createElement("div");
+container.innerHTML = empTable.getHtml();
+document.body.appendChild(container);
