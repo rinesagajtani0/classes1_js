@@ -126,3 +126,26 @@ const employees = [
   new Employee("Jane Smith", "Accountant", 2500),
   new Employee("Bob Wilson", "Cashier", 2000)
 ];
+
+
+class EmpTable {
+  constructor(employees) {
+    this.employees = employees;
+  }
+
+  getHtml() {
+    let table = "<table border='1' cellspacing='0' cellpadding='6' style='margin:20px auto; font-family:Arial;'>";
+    table += "<tr><th>Name</th><th>Position</th><th>Salary</th></tr>";
+
+    this.employees.forEach(emp => {
+      table += `<tr>
+        <td>${emp.name}</td>
+        <td>${emp.position}</td>
+        <td>${emp.salary}</td>
+      </tr>`;
+    });
+
+    table += "</table>";
+    return table;
+  }
+}
