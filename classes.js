@@ -24,17 +24,13 @@ class Circle {
   }
 }
 
-const c = new Circle(5);
+let input = prompt("Enter radius of circle:");
+let r = Number(input);
+let circle = new Circle(r);
 
-document.write("Radius: " + c.radius + "<br>");
-document.write("Diameter: " + c.diameter + "<br>");
-document.write("Area: " + c.getArea().toFixed(2) + "<br>");
-document.write("Circumference: " + c.getCircumference().toFixed(2) + "<br>");
-document.write("<hr>");
-
-c.radius = 10;
-
-document.write("New Radius: " + c.radius + "<br>");
-document.write("New Diameter: " + c.diameter + "<br>");
-document.write("New Area: " + c.getArea().toFixed(2) + "<br>");
-document.write("New Circumference: " + c.getCircumference().toFixed(2) + "<br>");
+document.write('<div class="result-box">');
+document.write('<div class="header">Circle with radius ' + circle.radius + '</div>');
+document.write('<div class="line">Diameter: ' + circle.diameter + '</div>');
+document.write('<div class="line">Area: ' + circle.getArea().toFixed(2) + '</div>');
+document.write('<div class="line">Circumference: ' + circle.getCircumference().toFixed(2) + '</div>');
+document.write('</div>');
