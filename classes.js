@@ -1,5 +1,4 @@
 // 1) Implement a class that describes a circle. It must have the following components:
-
 // a field that stores the radius of the circle;
 // get-property that returns the radius of the circle;
 // set-property that sets the radius of the circle;
@@ -8,45 +7,46 @@
 // a method that calculates the length of the circle.
 // Demonstrate the work of properties and methods.
 
-class Circle {
-  constructor(radius) {
-    this._radius = radius;
-  }
+// class Circle {
+//   constructor(radius) {
+//     this._radius = radius;
+//   }
 
-    get radius() {
-    return this._radius;
-  }
+//     get radius() {
+//     return this._radius;
+//   }
 
-    set radius(value) {
-    this._radius = value;
-  }
+//     set radius(value) {
+//     this._radius = value;
+//   }
 
-    get diameter() {
-    return this._radius * 2;
-  }
+//     get diameter() {
+//     return this._radius * 2;
+//   }
 
-   getArea() {
-    return Math.PI * this._radius * this._radius;
-  }
+//    getArea() {
+//     return Math.PI * this._radius * this._radius;
+//   }
 
-    getCircumference() {
-    return 2 * Math.PI * this._radius;
-  }
-}
+//     getCircumference() {
+//     return 2 * Math.PI * this._radius;
+//   }
+// }
 
-let input = prompt("Enter radius of circle:");
-let r = Number(input);
-let circle = new Circle(r);
+// let input = prompt("Enter radius of circle:");
+// let r = Number(input);
+// let circle = new Circle(r);
 
-document.write('<div class="result-box">');
-document.write('<div class="header">Circle with radius ' + circle.radius + '</div>');
-document.write('<div class="line">Diameter: ' + circle.diameter + '</div>');
-document.write('<div class="line">Area: ' + circle.getArea().toFixed(2) + '</div>');
-document.write('<div class="line">Circumference: ' + circle.getCircumference().toFixed(2) + '</div>');
-document.write('</div>');
+// document.write('<div class="result-box">');
+// document.write('<div class="header">Circle with radius ' + circle.radius + '</div>');
+// document.write('<div class="line">Diameter: ' + circle.diameter + '</div>');
+// document.write('<div class="line">Area: ' + circle.getArea().toFixed(2) + '</div>');
+// document.write('<div class="line">Circumference: ' + circle.getCircumference().toFixed(2) + '</div>');
+// document.write('</div>');
+
+
 
 // 2) Implement a class that describes a stationery marker. It must have the following components:
-
 // a field that stores the color of the marker;
 // a field that stores the amount of ink in the marker (in percent);
 // an input method (accepts a string and prints the text in the corresponding color; the text is displayed as long as there is ink in the marker; one non-whitespace character is 0.5% of the ink in the marker).
@@ -54,12 +54,13 @@ document.write('</div>');
 
 // Demonstrate the work of the written methods.
 
- class Marker {
-  constructor(color) {
+class Marker {
+  constructor(color, ink) {
     this.color = color;
+    this.ink = ink;
   }
 
-   print(text) {
+  print(text) {
     let output = "";
     for (let char of text) {
       if (this.ink <= 0) break;
@@ -68,21 +69,33 @@ document.write('</div>');
       }
       output += char;
     }
-    document.write('<p style="color:' + this.color + '">' + output + '</p>');
+    console.log(`%c${output}`, `color:${this.color}`);
+    console.log("Remaining ink: " + this.ink.toFixed(1) + "%");
   }
 }
 
 class RefillableMarker extends Marker {
+  constructor(color, ink) {
+    super(color, ink);
+  }
+
   refill(amount) {
     this.ink += amount;
+    console.log("Refilled! Ink is now: " + this.ink.toFixed(1) + "%");
   }
 }
 
-let marker = new RefillableMarker("blue", 5);
+let colorInput = prompt("Enter marker color (e.g. red):");
+let inkInput = Number(prompt("Enter ink amount (percent):"));
+let textInput = prompt("Enter text to print:");
 
-marker.print("Hello World!");
-marker.print(" Coding is fun!");
+let marker = new RefillableMarker(colorInput, inkInput);
 
-marker.refill(10);
+console.log("Initial ink: " + marker.ink + "%");
+marker.print(textInput);
 
-marker.print(" Now I have more ink!");
+if (marker.ink <= 0) {
+  console.log("Out of ink! Refilling...");
+  marker.refill(20);
+  marker.print(textInput);
+}
