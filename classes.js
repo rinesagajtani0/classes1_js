@@ -26,14 +26,15 @@ class Circle {
 
 const c = new Circle(5);
 
-console.log(c.radius);
-console.log(c.diameter);
-console.log(c.getArea());
-console.log(c.getCircumference());
+document.write("Radius: " + c.radius + "<br>");
+document.write("Diameter: " + c.diameter + "<br>");
+document.write("Area: " + c.getArea().toFixed(2) + "<br>");
+document.write("Circumference: " + c.getCircumference().toFixed(2) + "<br>");
+document.write("<hr>");
 
 c.radius = 10;
 
-console.log(c.radius);
-console.log(c.diameter);
-console.log(c.getArea());
-console.log(c.getCircumference());
+document.write("New Radius: " + c.radius + "<br>");
+document.write("New Diameter: " + c.diameter + "<br>");
+document.write("New Area: " + c.getArea().toFixed(2) + "<br>");
+document.write("New Circumference: " + c.getCircumference().toFixed(2) + "<br>");
