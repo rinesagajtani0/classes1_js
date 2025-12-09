@@ -77,3 +77,12 @@ class RefillableMarker extends Marker {
     this.ink += amount;
   }
 }
+
+let marker = new RefillableMarker("blue", 5);
+
+marker.print("Hello World!");
+marker.print(" Coding is fun!");
+
+marker.refill(10);
+
+marker.print(" Now I have more ink!");
