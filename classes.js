@@ -18,4 +18,8 @@ class Circle {
    getArea() {
     return Math.PI * this._radius * this._radius;
   }
+
+    getCircumference() {
+    return 2 * Math.PI * this._radius;
+  }
 }
